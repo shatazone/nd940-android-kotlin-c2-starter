@@ -6,6 +6,20 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:textColorAlertDialogListItem">@color/default_text_color</item>
+        <item name="textColorAlertDialogListItem">@color/default_text_color</item>
+        <item name="android:itemBackground">@color/app_background</item>
+        <item name="android:background">@color/app_background</item>
+
+
+        <item name="android:alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="android:alertDialogStyle">@style/AlertDialogTheme</item>
     </style>
 
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:colorAccent">@color/default_text_color</item>
+        <item name="android:textColorPrimary">@color/default_text_color</item>
+    </style>
 </resources>

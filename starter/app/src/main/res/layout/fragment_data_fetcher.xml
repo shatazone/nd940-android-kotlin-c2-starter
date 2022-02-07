@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.datafetcher.DataFetcherFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.udacity.asteroidradar.ui.datafetcher.DataFetcherViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/error_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#10FFFFFF"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:setVisibility="@{viewModel.showError}">
+
+            <ImageView
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_baseline_error_outline_24"
+                android:contentDescription="@string/an_error_has_occurred_try_again"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="@string/an_error_has_occurred_try_again"
+                android:textSize="24sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="64dp"
+                android:text="@string/retry"
+                android:textColor="@color/colorPrimaryDark"
+                android:onClick="@{()->viewModel.refreshAppData()}"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#10FFFFFF"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:setVisibility="@{viewModel.showLoader}">
+
+            <ProgressBar
+                android:id="@+id/status_loading_wheel"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center_horizontal"
+                android:indeterminate="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="32dp"
+                android:text="@string/loading_please_wait"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+</layout>
